@@ -1,3 +1,26 @@
 <div class="frontpage-title container">
   <h1><a href="<%= frontpage_url %>"><%= t('page.title') %></a></h1>
+  <%= render partial: 'shared/menu', locals: { items: [
+    {
+    text: 'Sign In',
+    url: new_author_session_url,
+    disabled: current_author.present?
+    },
+    {
+    text: 'Sign Up',
+    url: new_author_registration_url,
+    disabled: current_author.present?
+    },
+    {
+    text: 'Account',
+    url: edit_author_registration_url,
+    disabled: current_author.blank?
+    },
+    {
+    text: 'Sign Out',
+    url: destroy_author_session_url,
+    method: :delete,
+    disabled: current_author.blank?
+    }
+  ]} %>
 </div>
