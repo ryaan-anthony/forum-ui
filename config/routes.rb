@@ -1,3 +1,5 @@
 Rails.application.routes.draw do
-  get '/', to: 'frontpage#index', as: 'frontpage'
+  devise_for :authors
+  get '/', to: 'page#index', as: 'frontpage'
+  get 'g/:group', to: 'page#show', as: 'group'
 end

@@ -1,0 +1,5 @@
+<ul class="groups container">
+  <% groups.each do |group| %>
+    <li><a href="<%= group_url(group.code) %>"><%= group.title %></a></li>
+  <% end %>
+</ul>

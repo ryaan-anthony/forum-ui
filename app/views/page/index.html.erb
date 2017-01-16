@@ -1,0 +1,5 @@
+<div class="content container">
+  <%= t('page.content') %>
+  <%= render partial: 'shared/groups', locals: { groups: @groups } %>
+  <%= render partial: 'shared/links', locals: { links: @links } %>
+</div>
