@@ -30,23 +30,31 @@ ActiveRecord::Schema.define(version: 20170116094259) do
     t.index ["username"], name: "index_authors_on_username", unique: true, using: :btree
   end
 
-  create_table "groups", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "groups", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
     t.string   "code"
     t.string   "title"
+    t.integer  "author_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["author_id"], name: "index_groups_on_author_id", using: :btree
   end
 
-  create_table "links", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "links", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
     t.string   "url"
+    t.string   "link_type"
+    t.text     "title",       limit: 65535
+    t.text     "image",       limit: 65535
+    t.text     "video",       limit: 65535
+    t.text     "description", limit: 65535
     t.integer  "author_id"
     t.integer  "group_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
     t.index ["author_id"], name: "index_links_on_author_id", using: :btree
     t.index ["group_id"], name: "index_links_on_group_id", using: :btree
   end
 
+  add_foreign_key "groups", "authors"
   add_foreign_key "links", "authors"
   add_foreign_key "links", "groups"
 end

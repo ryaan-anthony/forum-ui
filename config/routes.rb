@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   authenticate :author do
     resources :groups, only: [:new, :create, :edit, :update, :destroy]
   end
-  resources :groups
-  resources :links
+  resources :groups do
+    resources :links
+  end
 end

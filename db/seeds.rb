@@ -1,51 +1,40 @@
-general_group = Group.find_or_create_by(code: :general) do |group|
-  group.code = 'general'
-  group.title = 'General Things'
+
+gifs_group = Group.find_or_create_by(title: 'Gifs') do |group|
+  group.title = 'Gifs'
 end
 
-lol_group = Group.find_or_create_by(code: :lol) do |group|
-  group.code = 'lol'
-  group.title = 'LOL'
-end
-
-programming_group = Group.find_or_create_by(code: :programming) do |group|
-  group.code = 'programming'
+programming_group = Group.find_or_create_by(title: 'Programming') do |group|
   group.title = 'Programming'
 end
 
-science_group = Group.find_or_create_by(code: :science) do |group|
-  group.code = 'science'
+science_group = Group.find_or_create_by(title: 'Science') do |group|
   group.title = 'Science'
 end
 
-top_group = Group.find_or_create_by(code: :top) do |group|
-  group.code = 'top'
-  group.title = 'Top Stories'
+shopping_group = Group.find_or_create_by(title: 'Shopping') do |group|
+  group.title = 'Shopping'
 end
 
-technology_group = Group.find_or_create_by(code: :technology) do |group|
-  group.code = 'technology'
+technology_group = Group.find_or_create_by(title: 'Technology') do |group|
   group.title = 'Technology'
 end
 
-us_group = Group.find_or_create_by(code: :us) do |group|
-  group.code = 'us'
+us_group = Group.find_or_create_by(title: 'U.S.') do |group|
   group.title = 'U.S.'
 end
 
-world_group = Group.find_or_create_by(code: :world) do |group|
-  group.code = 'world'
+world_group = Group.find_or_create_by(title: 'World') do |group|
   group.title = 'World'
 end
 
 default_links = {
-  general_group.id => %w(
+  gifs_group.id => %w(
+    http://i.imgur.com/Rum0zSz.gifv
+    http://i.imgur.com/BPLErFK.gifv
+    http://i.imgur.com/gkp04Gc.gifv
     http://i.imgur.com/nLcoOb7.gifv
     http://i.imgur.com/UQpEvIb.gifv
     http://i.imgur.com/H2uBuzn.gifv
-  ),
-  lol_group.id => %w(
-    https://i.redd.it/11s46m0842ay.jpg
     http://i.imgur.com/2OU6BLS.gif
     http://i.imgur.com/h80nOpy.gifv
   ),
@@ -61,10 +50,10 @@ default_links = {
     http://news.nationalgeographic.com/2016/12/supervolcano-campi-flegrei-stirs-under-naples-italy/
     https://medicalxpress.com/news/2017-01-association-hot-peppers-decreased-mortality.html
   ),
-  top_group.id => %w(
-    http://i.imgur.com/Rum0zSz.gifv
-    http://i.imgur.com/BPLErFK.gifv
-    http://i.imgur.com/gkp04Gc.gifv
+  shopping_group.id => %w(
+    https://www.amazon.com/gp/product/B007AHHP2W/
+    http://www.homedepot.com/p/Husky-SAE-Flex-Ratcheting-Combination-Wrench-Set-5-Piece-HFRW5PCSAE/202934579
+    https://www.wayfair.com/Forty-West-Gage-20.5-Table-Lamp-70005-LSWP1079.html
   ),
   technology_group.id => %w(
     https://www.techdirt.com/articles/20161220/12411836320/company-bricks-users-software-after-he-posts-negative-review.shtml
@@ -85,9 +74,13 @@ default_links = {
 }
 default_links.each do |group_id, links|
   links.each do |url|
-    Link.find_or_create_by(url: url) do |link|
-      link.url = url
-      link.group_id = group_id
+    begin
+      Link.find_or_create_by(url: url) do |link|
+        link.url = url
+        link.group_id = group_id
+      end
+    rescue Errors::InvalidLinkError
+      # do nothing
     end
   end
 end

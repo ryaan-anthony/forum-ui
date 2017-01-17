@@ -13,3 +13,23 @@
  *= require_tree .
  *= require_self
  */
+.links .image-container,
+.links .video-container
+{
+    max-height: 200px;
+    overflow: hidden;
+}
+.links .row
+{
+    padding: 10px 0;
+}
+.links .image-container img,
+.links .video-container video
+{
+    width: 100%;
+}
+.links .title-container,
+.links .description-container
+{
+    padding: 10px;
+}

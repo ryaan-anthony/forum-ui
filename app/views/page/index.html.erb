@@ -1,5 +1,12 @@
-<div class="content container">
-  <%= t('page.content') %>
-  <%= render partial: 'shared/groups', locals: { groups: @groups } %>
-  <%= render partial: 'shared/links', locals: { links: @links } %>
+<%= render partial: 'shared/header', locals: { title: t('page.title') } %>
+<div class="content container row">
+  <div class="col-xs-2">
+    <%= render partial: 'shared/groups', locals: { groups: @groups } %>
+  </div>
+  <div class="col-xs-8">
+    <%= render partial: 'shared/links', locals: { links: @links } %>
+  </div>
+  <div class="col-xs-2">
+    <%= render partial: 'shared/menu', locals: { items: []} %>
+  </div>
 </div>

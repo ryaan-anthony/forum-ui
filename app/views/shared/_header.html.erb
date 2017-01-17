@@ -1,6 +1,10 @@
-<div class="frontpage-title container">
-  <h1><a href="<%= frontpage_url %>"><%= t('page.title') %></a></h1>
+<div class="page-title container">
   <%= render partial: 'shared/menu', locals: { items: [
+    {
+    text: 'Back to home',
+    url: frontpage_url,
+    disabled: current_page?('/')
+    },
     {
     text: 'Sign In',
     url: new_author_session_url,
@@ -23,4 +27,7 @@
     disabled: current_author.blank?
     }
   ]} %>
+  <h1><%= title %></h1>
+  <%= render partial: 'shared/flash_messages' %>
+  <%= t('page.content') %>
 </div>

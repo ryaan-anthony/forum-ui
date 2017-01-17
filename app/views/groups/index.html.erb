@@ -1,0 +1,22 @@
+<%= render partial: 'shared/header', locals:{ title: current_group.title } %>
+<div class="content row">
+  <div class="col-xs-2">
+    <%= render partial: 'shared/groups', locals: { groups: @groups } %>
+  </div>
+  <div class="col-xs-8">
+    <%= render partial: 'shared/links', locals: { links: @links } %>
+  </div>
+  <div class="col-xs-2">
+    <%= render partial: 'shared/menu', locals: { items: [
+      {
+        text: 'Edit Group',
+        url: edit_group_url,
+        disabled: !can_edit_group
+      },
+      {
+        text: 'Add Link',
+        url: new_group_link_url(current_group.code)
+      }
+    ]} %>
+  </div>
+</div>

@@ -1,9 +1,9 @@
-<h2>New group</h2>
+<h2>Edit group</h2>
 
-<%= form_for(:group, url: groups_url) do |f| %>
+<%= form_for(current_group, url: group_url, method: :put) do |f| %>
     <div class="field">
       <%= f.label :title %><br />
-      <%= f.text_field :title%>
+      <%= f.text_field :title %>
     </div>
 
     <div class="actions">
