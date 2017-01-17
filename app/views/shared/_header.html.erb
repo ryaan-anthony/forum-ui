@@ -1,33 +1,34 @@
-<div class="page-title container">
-  <%= render partial: 'shared/menu', locals: { items: [
-    {
-    text: 'Back to home',
-    url: frontpage_url,
-    disabled: current_page?('/')
-    },
-    {
-    text: 'Sign In',
-    url: new_author_session_url,
-    disabled: current_author.present?
-    },
-    {
-    text: 'Sign Up',
-    url: new_author_registration_url,
-    disabled: current_author.present?
-    },
-    {
-    text: 'Account',
-    url: edit_author_registration_url,
-    disabled: current_author.blank?
-    },
-    {
-    text: 'Sign Out',
-    url: destroy_author_session_url,
-    method: :delete,
-    disabled: current_author.blank?
-    }
-  ]} %>
-  <h1><%= title %></h1>
+<div class="page-title">
+    <div class="row">
+      <div class="col-xs-7">
+        <h1><%= title %></h1>
+      </div>
+      <div class="col-xs-5">
+          <%= render partial: 'shared/menu', locals: { items: [
+            {
+            text: 'Sign In',
+            url: new_author_session_url,
+            disabled: current_author.present?
+            },
+            {
+            text: 'Sign Up',
+            url: new_author_registration_url,
+            disabled: current_author.present?
+            },
+            {
+            text: 'Account',
+            url: edit_author_registration_url,
+            disabled: current_author.blank?
+            },
+            {
+            text: 'Sign Out',
+            url: destroy_author_session_url,
+            method: :delete,
+            disabled: current_author.blank?
+            }
+          ]} %>
+      </div>
+    </div>
   <%= render partial: 'shared/flash_messages' %>
   <%= t('page.content') %>
 </div>

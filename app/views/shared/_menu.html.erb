@@ -1,4 +1,4 @@
-<ul class="menu container">
+<ul class="menu">
   <% items.each do |item| next if item[:disabled] %>
       <li>
         <%= link_to item[:text], item[:url], :method => item[:method] || 'get' %>

@@ -13,6 +13,20 @@
  *= require_tree .
  *= require_self
  */
+.page-title
+{
+    padding: 10px;
+}
+.page-title .menu
+{
+    float: right;
+    list-style: none;
+}
+.page-title h1
+{
+    font-size: 32px;
+    margin: 0;
+}
 .links .image-container,
 .links .video-container
 {
