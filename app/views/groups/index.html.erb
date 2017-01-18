@@ -4,19 +4,27 @@
     <%= render partial: 'shared/groups', locals: { groups: @groups } %>
   </div>
   <div class="col-xs-8">
+    <%= render partial: 'shared/links/new' %>
     <%= render partial: 'shared/links', locals: { links: @links } %>
   </div>
   <div class="col-xs-2">
-    <%= render partial: 'shared/menu', locals: { items: [
-      {
-        text: 'Edit Group',
-        url: edit_group_url,
-        disabled: !can_edit_group
-      },
-      {
-        text: 'Add Link',
-        url: new_group_link_url(current_group.code)
-      }
-    ]} %>
+    <%= render partial: 'shared/sidebar', locals: {
+      top_links: [
+        {
+          text: 'Edit Group',
+          url: edit_group_url,
+          disabled: !can_edit_group
+        },
+        {
+          text: t('groups.new_group'),
+          url: new_group_url
+        }
+      ],
+      bottom_links: [
+        {
+          text: '© 2017 Foobar'
+        }
+      ]
+    } %>
   </div>
 </div>

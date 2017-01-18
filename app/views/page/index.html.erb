@@ -7,6 +7,17 @@
     <%= render partial: 'shared/links', locals: { links: @links } %>
   </div>
   <div class="col-xs-2">
-    <%= render partial: 'shared/menu', locals: { items: []} %>
+    <%= render partial: 'shared/sidebar', locals: {
+      top_links: [
+        {
+          text: t('groups.new_group'),
+          url: new_group_url
+        }
+      ],
+      bottom_links: [
+        {
+          text: '© 2017 Foobar'
+        }
+      ]} %>
   </div>
 </div>

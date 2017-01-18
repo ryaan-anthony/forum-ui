@@ -1,7 +1,5 @@
-<ul class="menu">
-  <% items.each do |item| next if item[:disabled] %>
-      <li>
-        <%= link_to item[:text], item[:url], :method => item[:method] || 'get' %>
-      </li>
-  <% end %>
-</ul>
+<% items.each do |item| next if item[:disabled] %>
+<div class="menu-item">
+  <%= item[:url].present? ? (link_to item[:text], item[:url], :method => item[:method] || 'get') : item[:text] %>
+</div>
+<% end %>

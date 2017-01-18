@@ -1,6 +1,5 @@
-<ul class="groups">
+<div class="group-links">
   <% groups.each do |group| %>
-      <li><%= link_to group.title, group_url(group.code) %></li>
+      <div class="menu-item"><%= link_to group.title, group_url(group.code) %></div>
   <% end %>
-  <li><%= link_to t('groups.new_group'), new_group_url %></li>
-</ul>
+</div>

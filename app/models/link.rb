@@ -7,8 +7,8 @@ class Link < ApplicationRecord
   private
 
   def fetch_title
-    self.title = metadata.title
-    self.link_type = metadata.type
+    self.title = metadata.title #required
+    self.link_type = metadata.type #required
     self.video = metadata.video
     self.image = metadata.image
     self.description = metadata.description

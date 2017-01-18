@@ -6,11 +6,6 @@
       <div class="col-xs-5">
           <%= render partial: 'shared/menu', locals: { items: [
             {
-            text: 'Sign In',
-            url: new_author_session_url,
-            disabled: current_author.present?
-            },
-            {
             text: 'Sign Up',
             url: new_author_registration_url,
             disabled: current_author.present?

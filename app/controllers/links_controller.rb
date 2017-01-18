@@ -7,10 +7,6 @@ class LinksController < ApplicationController
     redirect_to current_link.url
   end
 
-  def new
-    @link = Link.new
-  end
-
   def create
     @link = Link.new(link_params)
     @link.group = current_group
@@ -21,7 +17,7 @@ class LinksController < ApplicationController
       redirect_to new_group_link_path, alert: "Error creating link."
     end
   rescue Errors::InvalidLinkError
-    redirect_to new_group_link_path, alert: "Sorry, invalid link."
+    redirect_to :back, alert: "Sorry, invalid link."
   end
 
   def current_link

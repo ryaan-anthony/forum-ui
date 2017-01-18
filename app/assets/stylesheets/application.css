@@ -17,10 +17,13 @@
 {
     padding: 10px;
 }
-.page-title .menu
+.group-links .menu-item,
+.page-title .menu-item,
+.top-links .menu-item,
+.bottom-links .menu-item
 {
-    float: right;
-    list-style: none;
+    text-align: right;
+    padding: 0 10px;
 }
 .page-title h1
 {

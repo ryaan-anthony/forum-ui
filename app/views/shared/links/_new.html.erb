@@ -1,0 +1,9 @@
+<%= form_for(:link, url: group_links_url(current_group.code)) do |f| %>
+    <div class="field">
+      <%= f.label :submit_a_url %><br />
+      <%= f.text_field :url, autofocus: true %>
+    </div>
+    <div class="actions">
+      <%= f.submit "+" %>
+    </div>
+<% end %>
