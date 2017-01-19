@@ -1,12 +1,9 @@
 <%= render partial: 'shared/header', locals: { title: t('page.title') } %>
 <div class="content row">
-  <div class="col-xs-2">
-    <%= render partial: 'shared/groups', locals: { groups: @groups } %>
-  </div>
-  <div class="col-xs-8">
+  <div class="links col-xs-9">
     <%= render partial: 'shared/links', locals: { links: @links } %>
   </div>
-  <div class="col-xs-2">
+  <div class="col-xs-3">
     <%= render partial: 'shared/sidebar', locals: {
       top_links: [
         {

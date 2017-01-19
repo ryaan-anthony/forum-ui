@@ -1,6 +1,9 @@
 <div class="login">
   <%= render partial: 'shared/login' unless current_author.present? %>
 </div>
+<div class="groups">
+  <%= render partial: 'shared/groups', locals: { groups: @groups } %>
+</div>
 <div class="top-links">
   <%= render partial: 'shared/menu', locals: { items: top_links } %>
 </div>

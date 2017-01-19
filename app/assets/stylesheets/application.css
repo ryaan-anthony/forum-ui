@@ -13,17 +13,52 @@
  *= require_tree .
  *= require_self
  */
+a:hover
+{
+    text-decoration: none;
+    color: #337ab7;
+}
+.row
+{
+margin:0;
+}
+
+.row > [class*='col-'] {
+    padding-right:0;
+    padding-left:0;
+}
+
+.content,
 .page-title
 {
-    padding: 10px;
+    padding: 7px;
 }
-.group-links .menu-item,
+.submit-link input[type="submit"]
+{
+    border: none;
+    background: none;
+}
+.submit-link input#link_url
+{
+    width:100%;
+}
+.submit-link .row
+{
+    padding: 14px 0;
+}
+.submit-link a
+{
+    padding-left: 7px;
+    font-weight: bold;
+    font-size: 17px;
+}
+.groups .menu-item,
 .page-title .menu-item,
 .top-links .menu-item,
 .bottom-links .menu-item
 {
     text-align: right;
-    padding: 0 10px;
+    /*padding: 0 3px;*/
 }
 .page-title h1
 {
@@ -36,9 +71,24 @@
     max-height: 200px;
     overflow: hidden;
 }
-.links .row
+.links .link
 {
-    padding: 10px 0;
+    padding: 3px 0;
+}
+.links .link:not(:last-child),
+.links .active:not(:last-child)
+{
+    border-bottom: 1px solid #eee;
+}
+.links .link:hover:not(:last-child),
+.links .link:active:not(:last-child)
+{
+    border-bottom: 1px solid #ddd;
+}
+.links .link:hover,
+.links .link:active
+{
+    background-color:#fbfbfb;
 }
 .links .image-container img,
 .links .video-container video
@@ -48,5 +98,5 @@
 .links .title-container,
 .links .description-container
 {
-    padding: 10px;
+    padding: 7px;
 }

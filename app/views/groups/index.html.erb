@@ -1,13 +1,12 @@
 <%= render partial: 'shared/header', locals:{ title: current_group.title } %>
 <div class="content row">
-  <div class="col-xs-2">
-    <%= render partial: 'shared/groups', locals: { groups: @groups } %>
-  </div>
-  <div class="col-xs-8">
-    <%= render partial: 'shared/links/new' %>
+  <div class="links col-xs-9">
+    <div class="submit-link">
+      <%= render partial: 'shared/links/new' %>
+    </div>
     <%= render partial: 'shared/links', locals: { links: @links } %>
   </div>
-  <div class="col-xs-2">
+  <div class="col-xs-3">
     <%= render partial: 'shared/sidebar', locals: {
       top_links: [
         {

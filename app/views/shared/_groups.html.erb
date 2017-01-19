@@ -1,5 +1,3 @@
-<div class="group-links">
-  <% groups.each do |group| %>
-      <div class="menu-item"><%= link_to group.title, group_url(group.code) %></div>
-  <% end %>
-</div>
+<% groups.each do |group| %>
+    <div class="menu-item"><%= link_to group.title, group_url(group.code) %></div>
+<% end %>
