@@ -7,7 +7,7 @@ class GroupsController < ApplicationController
 
   def show
     @groups = Group.all
-    @links = Link.where(group_id: current_group.id)
+    @links = Link.search query: { match: { group_id: current_group.id } }
     render :index
   end
 
@@ -35,6 +35,11 @@ class GroupsController < ApplicationController
     else
       redirect_to new_group_path, alert: @group.errors.full_messages #"Error creating group."
     end
+  end
+
+  helper_method :page_title
+  def page_title
+    "#{current_group.title} | #{t('page.title')}"
   end
 
   private

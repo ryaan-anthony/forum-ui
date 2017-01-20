@@ -9,8 +9,8 @@ class LinksController < ApplicationController
 
   def create
     @link = Link.new(link_params)
-    @link.group = current_group
-    @link.author = current_author if current_author.present?
+    @link.group_id = current_group.id
+    @link.author_id = current_author.id if current_author.present?
     if @link.save
       redirect_to group_url(current_group.code), alert: "Link created successfully."
     else

@@ -49,4 +49,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'devise'
 gem 'dotenv-rails'
-gem 'opengraph', git: 'https://github.com/ryaan-anthony/opengraph.git'
+gem 'opengraph', git: 'https://github.com/ryaan-anthony/opengraph.git', branch: 'master'
+gem 'elasticsearch-persistence', require: 'elasticsearch/persistence/model'

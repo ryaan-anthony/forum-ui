@@ -75,10 +75,8 @@ default_links = {
 default_links.each do |group_id, links|
   links.each do |url|
     begin
-      Link.find_or_create_by(url: url) do |link|
-        link.url = url
-        link.group_id = group_id
-      end
+      link = Link.new(url: url, group_id:group_id)
+      link.save
     rescue Errors::InvalidLinkError
       # do nothing
     end

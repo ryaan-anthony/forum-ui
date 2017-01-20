@@ -1,18 +1,18 @@
 <% links.each do |link| %>
     <div class="link row">
-      <% if link.video.present? %>
+      <% if link.video_url.present? %>
           <div class="col col-xs-2 video-container">
-            <%= video_tag link.video, controls: true, autobuffer: true, autoplay: true, loop: true %>
+            <%= video_tag link.video_url, controls: true, autobuffer: true, autoplay: true, loop: true %>
           </div>
       <% elsif link.image.present? %>
           <div class="col col-xs-2 image-container">
-            <%= link_to(group_link_url(link.group.code, link.id), :target => '_blank') do %>
+            <%= link_to(group_link_url(link.group_id, link.id), :target => '_blank') do %>
               <%= image_tag link.image %>
             <% end %>
           </div>
       <% end %>
       <div class="col col-xs-<%= link.image.present? ? 10 : 12 %> title-container">
-        <%= link_to link.title, group_link_url(link.group.code, link.id), :target => '_blank' %>
+        <%= link_to link.title, group_link_url(link.group_id, link.id), :target => '_blank' %>
         <% if link.description %>
             <div class="description-container">
               <%= link.description %>
