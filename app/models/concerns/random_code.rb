@@ -1,11 +1,17 @@
 module RandomCode
   extend ActiveSupport::Concern
+  include ActiveSupport::Inflector
 
   included do
     before_create :generate_code
+    before_save :parameterize_code
   end
 
   protected
+
+  def parameterize_code
+    self.parameterize(self.code, separator: '-', preserve_case: true)
+  end
 
   def generate_code
     self.code = loop do
