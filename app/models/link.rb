@@ -1,6 +1,14 @@
+class LinkIndex
+  def self.current_index
+    'foo'
+  end
+end
 class Link
   include ActiveModel::Validations
   include Elasticsearch::Persistence::Model
+
+  # Set the index to be used for this request
+  index_name LinkIndex.current_index
 
   attribute :author_id, Integer, default: 0, mapping: { type: 'integer' }
   attribute :description, String
@@ -13,25 +21,13 @@ class Link
   validates :type, presence: true
   validates :title, presence: true
   validates :url, presence: true, :format => URI::regexp(%w(http https))
+  validates :video_url, :format => URI::regexp(%w(http https))
 
   def save
     assign_attributes fetch_metadata
-    normalize :video_url
+    #todo provide meaningful errors (BAD REQUEST)
     raise Errors::InvalidLinkError unless self.valid?
     super
-  end
-
-  private
-
-  # Some attributes can sometimes be an array
-  def normalize(attribute)
-    public_send("#{attribute}=", public_send(attribute).first) if public_send(attribute).is_a? Array
-  end
-
-  def fetch_metadata
-    result = ::OpenGraph.fetch(self.url)
-    raise Errors::InvalidLinkError unless result
-    result
   end
 
   def assign_attributes(attributes)
@@ -40,8 +36,17 @@ class Link
     end
   end
 
+  private
+
   def _assign_attribute(k, v)
     public_send("#{k}=", v) if respond_to?("#{k}=")
+  end
+
+  def fetch_metadata
+    result = OpenGraph.fetch(self.url)
+    #todo provide meaningful errors (BAD LINK)
+    raise Errors::InvalidLinkError unless result
+    result
   end
 
 end
