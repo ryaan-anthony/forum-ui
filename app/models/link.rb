@@ -28,7 +28,13 @@ class Link
   validates :url, presence: true, :format => URI::regexp(%w(http https))
   validates :video_url, :format => URI::regexp(%w(http https))
 
+  def search
+    index_name LinkIndex.current_index+'*'
+    super
+  end
+
   def save
+    LinkIndex.saving = true
     assign_attributes fetch_metadata
     #todo provide meaningful errors (BAD REQUEST)
     raise Errors::InvalidLinkError unless self.valid?

@@ -1,8 +1,21 @@
 class PageController < ApplicationController
 
   def index
-    @groups = Group.all
-    @links = Link.last(5)
+    respond_to do |format|
+      format.html {
+        @groups = Group.all
+        render :index
+      }
+      format.json {
+        @links = Link.search query: {
+          bool: {
+            # get newest links
+            filter: { range: { created_at: { gt: params[:last_date] || 0 } } }
+          }
+        }, sort: [ { created_at: { order: 'asc' } } ]
+        render json: { links: @links, template: params[:last_date] }
+      }
+    end
   end
 
 end

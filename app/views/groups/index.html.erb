@@ -1,12 +1,10 @@
-<%= render partial: 'shared/header', locals:{ title: current_group.title } %>
+<%= render partial: 'shared/flash_messages' %>
 <div class="content row">
-  <div class="links col-xs-9">
-    <div class="submit-link">
-      <%= render partial: 'shared/links/new' %>
-    </div>
-    <%= render partial: 'shared/links', locals: { links: @links } %>
-  </div>
   <div class="col-xs-3">
+    <div class="page-title">
+      <h1><%= current_group.title %></h1>
+      <%= t('page.description') %>
+    </div>
     <%= render partial: 'shared/sidebar', locals: {
       top_links: [
         {
@@ -21,9 +19,31 @@
       ],
       bottom_links: [
         {
+          text: 'Sign Up',
+          url: new_author_registration_url,
+          disabled: current_author.present?
+        },
+        {
+          text: 'Account',
+          url: edit_author_registration_url,
+          disabled: current_author.blank?
+        },
+        {
+          text: 'Sign Out',
+          url: destroy_author_session_url,
+          method: :delete,
+          disabled: current_author.blank?
+        },
+        {
           text: '© 2017 Foobar'
         }
       ]
     } %>
+  </div>
+  <div class="links col-xs-9">
+    <div class="submit-link">
+      <%= render partial: 'shared/links/new' %>
+    </div>
+    <%= render partial: 'shared/links', locals: { links: @links } %>
   </div>
 </div>

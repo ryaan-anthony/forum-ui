@@ -13,6 +13,10 @@
  *= require_tree .
  *= require_self
  */
+.flash-message
+{
+    margin:0;
+}
 a:hover
 {
     text-decoration: none;
@@ -57,7 +61,6 @@ margin:0;
 .top-links .menu-item,
 .bottom-links .menu-item
 {
-    text-align: right;
     /*padding: 0 3px;*/
 }
 .page-title h1
