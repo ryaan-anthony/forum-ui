@@ -23,6 +23,7 @@ class LinkBuilder
 
   static request(timeout) {
     $.ajax({
+      url : window.location+".json",
       type : "get",
       data: {
         last_date: LAST_LINK_DATE
