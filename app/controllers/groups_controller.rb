@@ -6,9 +6,23 @@ class GroupsController < ApplicationController
   before_filter :require_permission, :only => [:edit, :update]
 
   def show
-    @groups = Group.all
-    @links = Link.search query: { match: { group_id: current_group.id } }
-    render :index
+    respond_to do |format|
+      format.html {
+        @groups = Group.all
+        render :index
+      }
+      format.json {
+        @links = Link.search query: {
+            bool: {
+              # belongs to group
+              must: { term: { group_id: current_group.id } },
+              # get newest links
+              filter: { range: { created_at: { gt: params[:last_date] || 0 } } }
+            }
+          }, sort: [ { created_at: { order: 'asc' } } ]
+        render json: { links: @links, template: params[:last_date] }
+      }
+    end
   end
 
   def new

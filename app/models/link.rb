@@ -2,6 +2,9 @@ class LinkIndex
   def self.current_index
     'foo'
   end
+  def self.current_type
+    'bar'
+  end
 end
 class Link
   include ActiveModel::Validations
@@ -9,6 +12,8 @@ class Link
 
   # Set the index to be used for this request
   index_name LinkIndex.current_index
+
+  document_type LinkIndex.current_type
 
   attribute :author_id, Integer, default: 0, mapping: { type: 'integer' }
   attribute :description, String
