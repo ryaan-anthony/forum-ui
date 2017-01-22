@@ -14,7 +14,15 @@
  *= require_self
  */
 
-html,body { height: 100%; margin: 0; padding: 0; }
+html,body
+{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+label{
+    font-size: 11px;
+}
 .flash-message
 {
     margin:0;
@@ -33,6 +41,13 @@ a:hover
     padding-left:0;
 }
 
+.upload-icon
+{
+    position: absolute;
+    right: 13px;
+    top: 13px;
+}
+
 .sidebar
 {
     width: 300px;
@@ -48,6 +63,34 @@ a:hover
     min-width:500px;
     padding: 7px;
     margin-left: 300px;
+    position: relative;
+}
+.menu
+{
+    margin-top: 7px;
+}
+.menu .menu-item
+{
+    padding:4px 0;
+}
+.menu .menu-item .badge
+{
+    float: right;
+}
+.search
+{
+    position:relative;
+    margin-top: 7px;
+}
+.search .search-icon
+{
+    position: absolute;
+    right: 5px;
+    top: 5px;
+}
+.search input[type="text"]
+{
+    width:100%;
 }
 
 #links-container
@@ -74,7 +117,7 @@ a:hover
 {
     padding-bottom: 4px;
 }
-.page-title h1
+.title h1
 {
     font-size: 22px;
     margin: 0;

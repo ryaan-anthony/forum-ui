@@ -1,15 +1,13 @@
+<div class="title">
+  <h1><%= (defined? title) ? title : t('page.title') %></h1>
+  <%= t('page.description') %>
+</div>
+<div class="search">
+  <%= render partial: 'shared/search' %>
+</div>
 <div class="login">
   <%= render partial: 'shared/login' unless current_author.present? %>
 </div>
-<div class="groups">
-  <%= render partial: 'shared/groups', locals: { groups: @groups } %>
-</div>
-<div class="top-links">
-  <%= render partial: 'shared/menu', locals: { items: top_links } %>
-</div>
-<div class="special-content">
-  <%= render partial: 'shared/ad_space' %>
-</div>
-<div class="bottom-links">
-  <%= render partial: 'shared/menu', locals: { items: bottom_links } %>
+<div class="menu">
+  <%= render partial: 'shared/menu', locals: { items: menu } %>
 </div>

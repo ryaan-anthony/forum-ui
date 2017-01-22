@@ -1,35 +1,32 @@
 <div class="main">
   <div class="sidebar">
-    <div class="page-title">
-      <h1><%= t('page.title') %></h1>
-      <%= t('page.description') %>
-    </div>
     <%= render partial: 'shared/sidebar', locals: {
-      top_links: [
+      menu: [
+        {
+          text: 'Homepage',
+          url: homepage_url,
+          badge: 42 # todo
+        },
+        {
+          text: 'My Profile',
+          url: edit_author_registration_url,
+          disabled: current_author.blank?,
+          badge: 24 # todo
+        },
         {
           text: t('groups.new_group'),
           url: new_group_url
-        }
-      ],
-      bottom_links: [
+        },
         {
           text: 'Sign Up',
           url: new_author_registration_url,
           disabled: current_author.present?
         },
         {
-          text: 'Account',
-          url: edit_author_registration_url,
-          disabled: current_author.blank?
-        },
-        {
           text: 'Sign Out',
           url: destroy_author_session_url,
           method: :delete,
           disabled: current_author.blank?
-        },
-        {
-          text: '© 2017 Foobar'
         }
       ]} %>
   </div>
