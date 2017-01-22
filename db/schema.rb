@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170116090255) do
+ActiveRecord::Schema.define(version: 20170116090245) do
 
   create_table "authors", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "username",               default: "", null: false
@@ -30,14 +30,4 @@ ActiveRecord::Schema.define(version: 20170116090255) do
     t.index ["username"], name: "index_authors_on_username", unique: true, using: :btree
   end
 
-  create_table "groups", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
-    t.string   "code"
-    t.string   "title"
-    t.integer  "author_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["author_id"], name: "index_groups_on_author_id", using: :btree
-  end
-
-  add_foreign_key "groups", "authors"
 end

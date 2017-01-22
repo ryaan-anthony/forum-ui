@@ -1,9 +1,9 @@
 class LinkIndex
   def self.current_index
-    'links'
+    'index'
   end
   def self.current_type
-    'link'
+    'type'
   end
 end
 class Link
@@ -15,14 +15,14 @@ class Link
 
   document_type LinkIndex.current_type
 
-  attribute :author_id, Integer, default: 0, mapping: { type: 'integer' }
+  attribute :author_id, Integer, mapping: { type: 'integer' }
   attribute :description, String
-  attribute :group_id, Integer, mapping: { type: 'integer' }
   attribute :image, String
   attribute :title, String
   attribute :type, String
   attribute :url, String
   attribute :video_url, String
+  validates :author_id, presence: true
   validates :type, presence: true
   validates :title, presence: true
   validates :url, presence: true, :format => URI::regexp(%w(http https))

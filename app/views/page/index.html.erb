@@ -14,12 +14,6 @@
           badge: 24 # todo
         },
         {
-          text: t('groups.new_group'),
-          disabled: current_author.blank?,
-          always_show: true,
-          url: new_group_url
-        },
-        {
           text: 'Sign Up',
           url: new_author_registration_url,
           disabled: current_author.present?
@@ -33,6 +27,9 @@
       ]} %>
   </div>
   <div class="content">
+    <div class="submit-link">
+      <%= render partial: 'shared/links/new' %>
+    </div>
     <%= render partial: 'shared/links' %>
   </div>
 </div>

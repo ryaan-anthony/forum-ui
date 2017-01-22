@@ -3,12 +3,4 @@
     <%= f.text_field :query %>
     <span class="search-icon glyphicon glyphicon-search" aria-hidden="true"></span>
   </div>
-
-  <% if current_group.present? %>
-    <div class="field">
-      <%= f.hidden_field :group_id, :value => current_group.id %>
-      <%= f.check_box :limit %>
-      <%= f.label 'Limit search to this channel' %>
-    </div>
-  <% end %>
 <% end %>
