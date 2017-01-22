@@ -1,24 +1,19 @@
-# README
+# Installation Instructions
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+1. Clone repo
 
-Things you may want to cover:
+2. Run `bundle install`
 
-* Ruby version
+3. Start rails server
 
-* System dependencies
+4. Start elasticsearch server
 
-* Configuration
+5. Configure `.env` file based on `.env.sample`
 
-* Database creation
+### Current environment:
 
-* Database initialization
+Ruby 2.3.1
+Rails 5.0.1
+Elasticsearch 5.1.2
+Redis (not yet implemented)
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
