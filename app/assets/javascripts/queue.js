@@ -1,4 +1,4 @@
-var LAST_LINK_DATE;
+var TOTAL_LINK_COUNT = 0;
 
 class Queue
 {
@@ -11,21 +11,13 @@ class Queue
       url : window.location+".json",
       type : "get",
       data: {
-        last_date: LAST_LINK_DATE
+        link_count: TOTAL_LINK_COUNT
       },
       dataType : "json"
-    }).done(function( json ) {
-      if (json.links.length) LAST_LINK_DATE = json.links[json.links.length - 1].created_at;
+    }).done(function(json) {
       console.log(json);
-      for(var i=0; i<json.links.length; i++){
-        var link = json.links[i];
-        var link_container = document.createElement('div');
-        $(link_container)
-          .addClass('link row')
-          .append(Template.image(link.url, link.image))
-          .append(Template.content(link.url, link.title, link.description));
-        $("#links-container").prepend($(link_container));
-      }
+      TOTAL_LINK_COUNT += json.links.length;
+      LinkBuilder.build(json.links);
     }).always(function(){
       setTimeout('Queue.request('+timeout+')', timeout);
     });

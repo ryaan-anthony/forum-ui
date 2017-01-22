@@ -8,15 +8,16 @@ class PageController < ApplicationController
         render :index
       }
       format.json {
-        @links = Link.search query: {
+        link_count = params[:link_count].to_i || 0
+        links = Link.search query: {
           bool: {
             # make a query
-            # must: { term: { foo: 'bar' } },
+             should: { term: { title: 'snow' } }
             # get newest links
-            filter: { range: { created_at: { gt: params[:last_date] || 0 } } }
+            #filter: { range: { created_at: { gt: params[:last_date] || 0 } } }
           }
-        }, sort: [ { created_at: { order: 'asc' } } ]
-        render json: { links: @links }
+        }#, sort: [ { created_at: { order: 'asc' } } ]
+        render json: { links: links.from(link_count), link_count: link_count }
       }
     end
   end
