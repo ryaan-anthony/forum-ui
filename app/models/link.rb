@@ -1,9 +1,9 @@
 class LinkIndex
   def self.current_index
-    'foo'
+    'links'
   end
   def self.current_type
-    'bar'
+    'link'
   end
 end
 class Link

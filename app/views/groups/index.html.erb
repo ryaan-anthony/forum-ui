@@ -1,5 +1,5 @@
-<div class="content row">
-  <div class="col-xs-3">
+<div class="main">
+  <div class="sidebar">
     <div class="page-title">
       <h1><%= current_group.title %></h1>
       <%= t('page.description') %>
@@ -39,7 +39,7 @@
       ]
     } %>
   </div>
-  <div class="links col-xs-9">
+  <div class="content">
     <div class="submit-link">
       <%= render partial: 'shared/links/new' %>
     </div>
