@@ -27,6 +27,10 @@ label{
 {
     margin:0;
 }
+.flash-message .alert
+{
+    margin-bottom:7px;
+}
 a:hover
 {
     text-decoration: none;
@@ -69,6 +73,10 @@ a:hover
 {
     margin-top: 7px;
 }
+.menu .menu-item.disabled a
+{
+    color:#c3c3c3;
+}
 .menu .menu-item
 {
     padding:4px 0;
@@ -88,9 +96,18 @@ a:hover
     right: 5px;
     top: 5px;
 }
-.search input[type="text"]
+.search input[type="text"],
+.login input[type="password"],
+.login input[type="text"]
 {
     width:100%;
+}
+
+.login input[type="submit"]
+{
+    margin-top: 4px;
+    float: right;
+    font-size: 11px;
 }
 
 #links-container
