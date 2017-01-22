@@ -3,12 +3,12 @@ class GroupsController < ApplicationController
   include GroupHelper
 
   before_action :authenticate_author!, :except => [:new, :show, :index]
+  before_action :authenticate_group, :only => [:show, :index]
   before_filter :require_permission, :only => [:edit, :update]
 
   def show
     respond_to do |format|
       format.html {
-        @groups = Group.all
         render :index
       }
       format.json {
@@ -57,6 +57,10 @@ class GroupsController < ApplicationController
   end
 
   private
+
+  def authenticate_group
+    current_group or not_found
+  end
 
   def require_permission
     redirect_to group_url(current_group.code) unless can_edit_group

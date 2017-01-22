@@ -3,7 +3,6 @@ class PageController < ApplicationController
   def index
     respond_to do |format|
       format.html {
-        @groups = Group.all
         render :index
       }
       format.json {
