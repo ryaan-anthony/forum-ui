@@ -24,7 +24,7 @@ a:hover
 }
 .row
 {
-margin:0;
+    margin:0;
 }
 
 .row > [class*='col-'] {
@@ -32,8 +32,7 @@ margin:0;
     padding-left:0;
 }
 
-.content,
-.page-title
+.content
 {
     padding: 7px;
 }
@@ -46,26 +45,18 @@ margin:0;
 {
     width:100%;
 }
-.submit-link .row
+.submit-link .progress
 {
-    padding: 14px 0;
+    margin-top:4px;
+    margin-bottom:0;
 }
-.submit-link a
+.submit-link
 {
-    padding-left: 7px;
-    font-weight: bold;
-    font-size: 17px;
-}
-.groups .menu-item,
-.page-title .menu-item,
-.top-links .menu-item,
-.bottom-links .menu-item
-{
-    /*padding: 0 3px;*/
+    padding-bottom: 4px;
 }
 .page-title h1
 {
-    font-size: 32px;
+    font-size: 22px;
     margin: 0;
 }
 .links .image-container,
