@@ -1,4 +1,4 @@
-<div class="main">
+<div id="main">
   <div class="sidebar">
     <%= render partial: 'shared/sidebar', locals: {
       menu: [
@@ -26,7 +26,7 @@
         }
       ]} %>
   </div>
-  <div class="sidebar-gutter"></div>
+  <%= render partial: 'shared/sidebar_gutter' %>
   <div class="content">
     <div class="submit-link">
       <%= render partial: 'shared/links/new' %>

@@ -1,0 +1,20 @@
+
+.flash-message
+{
+    margin:0;
+}
+.flash-message .alert
+{
+    margin:0;
+    padding: 7px;
+    border: 0;
+    border-radius: 0;
+}
+.row
+{
+    margin:0;
+}
+.row > [class*='col-'] {
+    padding-right:0;
+    padding-left:0;
+}
