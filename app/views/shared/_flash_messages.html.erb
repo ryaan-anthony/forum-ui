@@ -1,8 +1,8 @@
-<ul class="flash-message">
+<div class="flash-message">
   <% if notice.present? %>
-    <li><%= notice %></li>
+    <div class="alert alert-success"><%= notice %></div>
   <% end %>
   <% if alert.present? %>
-    <li><%= alert %></li>
+    <div class="alert alert-warning"><%= alert %></div>
   <% end %>
-</ul>
+</div>
