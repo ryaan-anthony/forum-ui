@@ -16,7 +16,7 @@ class PageController < ApplicationController
             filter: { range: { created_at: { gt: params[:last_date] || 0 } } }
           }
         }, sort: [ { created_at: { order: 'asc' } } ]
-        render json: { links: @links, template: params[:last_date] }
+        render json: { links: @links }
       }
     end
   end
