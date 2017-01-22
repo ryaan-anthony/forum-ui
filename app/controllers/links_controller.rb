@@ -12,7 +12,7 @@ class LinksController < ApplicationController
     @link.group_id = current_group.id
     @link.author_id = current_author.id if current_author.present?
     if @link.save
-      redirect_to group_url(current_group.code), alert: "Link created successfully."
+      redirect_to group_url(current_group.code), notice: "Link created successfully."
     else
       redirect_to new_group_link_path, alert: "Error creating link."
     end
