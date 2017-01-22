@@ -34,7 +34,6 @@ class Link
   end
 
   def save
-    LinkIndex.saving = true
     assign_attributes fetch_metadata
     #todo provide meaningful errors (BAD REQUEST)
     raise Errors::InvalidLinkError unless self.valid?
