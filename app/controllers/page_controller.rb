@@ -12,7 +12,7 @@ class PageController < ApplicationController
         links = Link.search query: {
           bool: {
             # make a query
-             should: { term: { title: 'snow' } }
+            # should: { term: { description: 'now' } }
             # get newest links
             #filter: { range: { created_at: { gt: params[:last_date] || 0 } } }
           }

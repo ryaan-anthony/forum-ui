@@ -11,3 +11,6 @@
 <div class="menu">
   <%= render partial: 'shared/menu', locals: { items: menu } %>
 </div>
+<div class="register hidden">
+  <%= render partial: 'shared/register' unless current_author.present? %>
+</div>

@@ -6,16 +6,15 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-module Forum
-  class Application < Rails::Application
-    # Settings in config/environments/* take precedence over those specified here.
-    # Application configuration should go into files in config/initializers
-    # -- all .rb files in that directory are automatically loaded.
+class Application < Rails::Application
+  # Settings in config/environments/* take precedence over those specified here.
+  # Application configuration should go into files in config/initializers
+  # -- all .rb files in that directory are automatically loaded.
 
-    # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
-    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]
-    config.i18n.default_locale = :en
+  # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
+  config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]
+  config.i18n.default_locale = :en
+  config.log_level = :debug
 
-    Elasticsearch::Persistence.client = Elasticsearch::Client.new host: ENV['ELASTICSEARCH_HOST'], port: ENV['ELASTICSEARCH_PORT']
-  end
+  Elasticsearch::Persistence.client = Elasticsearch::Client.new log: true
 end

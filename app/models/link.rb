@@ -1,9 +1,9 @@
 class LinkIndex
   def self.current_index
-    'index'
+    '_index'
   end
   def self.current_type
-    'type'
+    '_type'
   end
 end
 class Link
@@ -16,9 +16,9 @@ class Link
   document_type LinkIndex.current_type
 
   attribute :author_id, Integer, mapping: { type: 'integer' }
-  attribute :description, String
+  attribute :description, String, mapping: { similarity: 'BM25' }
   attribute :image, String
-  attribute :title, String
+  attribute :title, String, mapping: { similarity: 'BM25' }
   attribute :type, String
   attribute :url, String
   attribute :video_url, String

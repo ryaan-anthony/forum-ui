@@ -15,6 +15,9 @@
     integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
     crossorigin="anonymous">
     <%= stylesheet_link_tag    'application', media: 'all' %>
+    <script>
+      var WARNING_MUST_BE_LOGGED_IN = '<%= t('devise.failure.unauthenticated') %>';
+    </script>
   </head>
   <body>
     <%= render partial: 'shared/flash_messages' %>

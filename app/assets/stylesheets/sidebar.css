@@ -32,7 +32,6 @@
     float: left;
     height: 100%;
     height: 100vh;
-    cursor: pointer;
     position: inherit; /* fixes issue with glyphicon */
 }
 

@@ -1,8 +1,8 @@
 <div class="flash-message">
   <% if notice.present? %>
-    <div class="alert alert-info" role="alert"><%= notice %></div>
+    <div class="alert alert-info" role="alert"><%= notice %><span class="close glyphicon glyphicon-remove"></span></div>
   <% end %>
   <% if alert.present? %>
-    <div class="alert alert-warning" role="alert"><%= alert %></div>
+    <div class="alert alert-warning" role="alert"><%= alert %><span class="close glyphicon glyphicon-remove"></span></div>
   <% end %>
 </div>

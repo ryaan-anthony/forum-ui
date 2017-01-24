@@ -31,11 +31,15 @@
     position: absolute;
     right: 6px;
     top: 6px;
+}
+.upload-icon.glyphicon-download-alt
+{
     color: #7bad5d;
+    cursor: pointer;
 }
 .upload-icon.glyphicon-lock
 {
-    color: #ff9784;
+    color: #b94934;
 }
 
 /*
@@ -71,13 +75,18 @@
     position: absolute;
     right: 5px;
     top: 5px;
+    color: #4481c5;
+    cursor: pointer;
 }
 .search input[type="text"],
 .login input[type="password"],
-.login input[type="text"]
+.login input[type="text"],
+.register input[type="password"],
+.register input[type="text"]
 {
     width:100%;
 }
+.register input[type="submit"],
 .login input[type="submit"]
 {
     margin-top: 4px;
