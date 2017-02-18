@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   apipie
   devise_for :authors
-  get '/', to: 'page#index', as: 'homepage'
+  get '/', to: 'dashboard#index', as: 'dashboard'
 
   def api_operations
     get '/post.json', to: 'posts#find'

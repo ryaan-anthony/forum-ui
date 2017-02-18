@@ -67,7 +67,7 @@ module V1
     end
 
     def current_author
-      Author.where(authentication_token: params[:authentication_token]).first
+      Author.where(production_token: params[:authentication_token]).first
     end
 
   end

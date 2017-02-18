@@ -1,4 +1,4 @@
-class PageController < ApplicationController
+class DashboardController < ApplicationController
 
   before_action :authenticate_author!, :only => [:new]
 
