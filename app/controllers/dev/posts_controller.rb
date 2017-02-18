@@ -1,24 +1,9 @@
 module Dev
   class PostsController < ::V1::PostsController
 
-    def create
-      operation_create
-    end
-
-    def find
-      operation_find
-    end
-
-    def search
-      operation_search
-    end
-
-    def update
-      operation_update
-    end
-
-    def destroy
-      operation_destroy
+    resource_description do
+      param :authentication_token, String, :required => true, :desc => I18n.t('api.params.authentication_token')
+      api_version 'dev'
     end
 
     def current_author

@@ -2,9 +2,6 @@
   <h1><%= (defined? title) ? title : t('page.title') %></h1>
   <%= t('page.description') %>
 </div>
-<div class="search">
-  <%= render partial: 'shared/search' %>
-</div>
 <div class="login">
   <%= render partial: 'shared/login' unless current_author.present? %>
 </div>
