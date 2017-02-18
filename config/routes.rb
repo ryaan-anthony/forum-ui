@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   apipie
-  devise_for :authors
+  devise_for :authors, :controllers => {:sessions => 'sessions', :registrations => 'registrations'}
+
   get '/', to: 'dashboard#index', as: 'dashboard'
 
   def api_operations

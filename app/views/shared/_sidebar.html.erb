@@ -8,6 +8,6 @@
 <div class="menu">
   <%= render partial: 'shared/menu', locals: { items: menu } %>
 </div>
-<div class="register hidden">
+<div id="registration-form" class="register collapse accordion-body">
   <%= render partial: 'shared/register' unless current_author.present? %>
 </div>

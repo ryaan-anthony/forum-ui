@@ -1,6 +1,6 @@
 <% items.each do |item| next if item[:disabled] && !item[:always_show] %>
 <div class="menu-item<%= (item[:disabled] ? ' disabled': '') %>">
-  <%= link_to item[:text], item[:url], :method => item[:method], class: item[:class] || '' %>
+  <%= link_to item[:text], item[:url], :method => item[:method], class: item[:class] || '', data: item[:data] || [] %>
   <% if item[:badge].present? %>
       <span class="badge"><%= item[:badge] %></span>
   <% end %>

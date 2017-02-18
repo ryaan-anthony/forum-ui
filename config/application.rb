@@ -8,6 +8,8 @@ class Application < Rails::Application
   I18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}')]
   config.log_level = :debug
 
+  #config.autoload_paths += %W(#{config.root}/lib)
+
   Elasticsearch::Persistence.client = Elasticsearch::Client.new log: true
 
 end

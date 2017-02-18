@@ -3,7 +3,6 @@
   <head>
     <title><%= (defined? page_title) ? page_title : t('page.title') %></title>
     <%= csrf_meta_tags %>
-
     <%= javascript_include_tag 'application' %>
     <script
     src="https://code.jquery.com/jquery-3.1.1.min.js"
@@ -35,15 +34,15 @@
               url: apipie_apipie_url
             },
             {
-              text: 'My Profile',
+              text: 'Account',
               url: edit_author_registration_url,
               disabled: current_author.blank?,
-              badge: 24 # todo
             },
             {
               text: 'Sign Up',
-              url: '#',
-              class: 'sign-up',
+              url: '#registration-form',
+              class: 'accordion-toggle',
+              data: { toggle: 'collapse' },
               disabled: current_author.present?
             },
             {
@@ -59,5 +58,6 @@
         <%= yield %>
       </div>
     </div>
+    <%= Apipie.include_javascripts %>
   </body>
 </html>

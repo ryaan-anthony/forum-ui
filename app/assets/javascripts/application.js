@@ -17,16 +17,13 @@ $(function() {
   $('.close').first().click(function () {
     $(this).parent().remove();
   });
-  $('.sign-up').first().click(function () {
-    $('.register').first().toggleClass('hidden');
-  });
-  $('input[readonly="readonly"]').first().click(function(){
-    var message_container = $('.flash-message').first();
-    if(!message_container.children().length){
-      message_container.append(Template.alert(WARNING_MUST_BE_LOGGED_IN));
-      $('.close').first().click(function () {
-        $(this).parent().remove();
-      });
-    }
-  });
+  // $('input[readonly="readonly"]').first().click(function(){
+  //   var message_container = $('.flash-message').first();
+  //   if(!message_container.children().length){
+  //     message_container.append(Template.alert(WARNING_MUST_BE_LOGGED_IN));
+  //     $('.close').first().click(function () {
+  //       $(this).parent().remove();
+  //     });
+  //   }
+  // });
 });
