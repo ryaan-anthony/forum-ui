@@ -17,3 +17,4 @@ en:
       detailed_description: 'Detailed description...'
     params:
       authentication_token: "Use the development token (click here) to build your app. When you're ready to go live (click here)."
+      id: "The post id."

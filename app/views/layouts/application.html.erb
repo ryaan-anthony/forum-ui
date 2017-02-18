@@ -21,6 +21,45 @@
   </head>
   <body>
     <%= render partial: 'shared/flash_messages' %>
-    <%= yield %>
+    <div id="main">
+      <div class="sidebar">
+        <%= render partial: 'shared/sidebar', locals: {
+          menu: [
+            {
+              text: 'Homepage',
+              url: homepage_url,
+              badge: 42 # todo
+            },
+            {
+              text: 'Documentation',
+              url: apipie_apipie_url
+            },
+            {
+              text: 'My Profile',
+              url: edit_author_registration_url,
+              disabled: current_author.blank?,
+              badge: 24 # todo
+            },
+            {
+              text: 'Sign Up',
+              url: '#',
+              class: 'sign-up',
+              disabled: current_author.present?
+            },
+            {
+              text: 'Sign Out',
+              url: destroy_author_session_url,
+              method: :delete,
+              disabled: current_author.blank?
+            }
+          ]} %>
+      </div>
+      <%= render partial: 'shared/sidebar_gutter' %>
+      <div class="content">
+        <%= yield %>
+      </div>
+    </div>
+    <footer><%= yield :apipie_footer %></footer>
+    <%= Apipie.include_javascripts %>
   </body>
 </html>

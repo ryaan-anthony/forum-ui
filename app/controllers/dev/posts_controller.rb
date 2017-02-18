@@ -1,16 +1,16 @@
 module Dev
   class PostsController < ::V1::PostsController
 
-    def index
-      operation_search
-    end
-
     def create
       operation_create
     end
 
-    def show
+    def find
       operation_find
+    end
+
+    def search
+      operation_search
     end
 
     def update

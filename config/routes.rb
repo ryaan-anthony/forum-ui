@@ -4,11 +4,11 @@ Rails.application.routes.draw do
   get '/', to: 'page#index', as: 'homepage'
 
   def api_operations
-    get '/search.json', to: 'posts#index'
-    post '/create.json', to: 'posts#create'
-    get '/find.json', to: 'posts#show'
-    put '/update.json', to: 'posts#update'
-    delete '/destroy.json', to: 'posts#destroy'
+    get '/post.json', to: 'posts#find'
+    post '/post.json', to: 'posts#create'
+    get '/posts.json', to: 'posts#search'
+    put '/post.json', to: 'posts#update'
+    delete '/post.json', to: 'posts#destroy'
   end
 
   scope :module => :v1, :path => '/api/v1' do

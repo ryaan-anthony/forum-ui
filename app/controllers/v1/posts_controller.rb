@@ -9,32 +9,39 @@ module V1
       param :authentication_token, String, :required => true, :desc => I18n.t('api.params.authentication_token')
     end
 
-    api :GET, '/v1/search.json', I18n.t('api.index.description')
-    description I18n.t('api.index.detailed_description')
-    def index
-      operation_search
+    def_param_group :single do
+      param :id, Integer, :required => true, :desc => I18n.t('api.params.id')
     end
 
-    api :POST, '/v1/create.json', I18n.t('api.create.description')
+    api :POST, '/v1/post.json', I18n.t('api.create.description')
     description I18n.t('api.create.detailed_description')
     def create
       operation_create
     end
 
-    api :GET, '/v1/find.json', I18n.t('api.show.description')
+    api :GET, '/v1/post.json', I18n.t('api.show.description')
     description I18n.t('api.show.detailed_description')
-    def show
+    param_group :single
+    def find
       operation_find
     end
 
-    api :PUT, '/v1/update.json', I18n.t('api.update.description')
+    api :GET, '/v1/posts.json', I18n.t('api.index.description')
+    description I18n.t('api.index.detailed_description')
+    def search
+      operation_search
+    end
+
+    api :PUT, '/v1/post.json', I18n.t('api.update.description')
     description I18n.t('api.update.detailed_description')
+    param_group :single
     def update
       operation_update
     end
 
-    api :DELETE, '/v1/destroy.json', I18n.t('api.destroy.description')
+    api :DELETE, '/v1/post.json', I18n.t('api.destroy.description')
     description I18n.t('api.destroy.detailed_description')
+    param_group :single
     def destroy
       operation_destroy
     end
