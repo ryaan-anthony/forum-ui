@@ -31,7 +31,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  # Call 'byebug' anywhere in the code to stop execution abnd get a debugger console
   gem 'byebug', platform: :mri
 end
 
@@ -51,3 +51,6 @@ gem 'devise'
 gem 'dotenv-rails'
 gem 'opengraph', git: 'https://github.com/ryaan-anthony/opengraph.git', branch: 'master'
 gem 'elasticsearch-persistence', require: 'elasticsearch/persistence/model'
+gem 'devise-token_authenticatable'
+
+gem 'apipie-rails'

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170116090245) do
+ActiveRecord::Schema.define(version: 20170217010159) do
 
   create_table "authors", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "username",               default: "", null: false
@@ -26,6 +26,10 @@ ActiveRecord::Schema.define(version: 20170116090245) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "authentication_token"
+    t.string   "development_token"
+    t.index ["authentication_token"], name: "index_authors_on_authentication_token", unique: true, using: :btree
+    t.index ["development_token"], name: "index_authors_on_development_token", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_authors_on_reset_password_token", unique: true, using: :btree
     t.index ["username"], name: "index_authors_on_username", unique: true, using: :btree
   end

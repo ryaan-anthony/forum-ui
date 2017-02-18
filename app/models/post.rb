@@ -1,19 +1,19 @@
-class LinkIndex
+class PostIndex
   def self.current_index
-    '_index'
+    'index'
   end
   def self.current_type
-    '_type'
+    'typeed'
   end
 end
-class Link
+class Post
   include ActiveModel::Validations
   include Elasticsearch::Persistence::Model
 
   # Set the index to be used for this request
-  index_name LinkIndex.current_index
+  index_name PostIndex.current_index
 
-  document_type LinkIndex.current_type
+  document_type PostIndex.current_type
 
   attribute :author_id, Integer, mapping: { type: 'integer' }
   attribute :description, String, mapping: { similarity: 'BM25' }
@@ -26,17 +26,17 @@ class Link
   validates :type, presence: true
   validates :title, presence: true
   validates :url, presence: true, :format => URI::regexp(%w(http https))
-  validates :video_url, :format => URI::regexp(%w(http https))
+  validates :video_url, :format => URI::regexp(%w(http https)), allow_nil: true
 
   def search
-    index_name LinkIndex.current_index+'*'
+    index_name PostIndex.current_index+'*'
     super
   end
 
   def save
     assign_attributes fetch_metadata
     #todo provide meaningful errors (BAD REQUEST)
-    raise Errors::InvalidLinkError unless self.valid?
+    raise Errors::InvalidPostError unless self.valid?
     super
   end
 
@@ -55,7 +55,7 @@ class Link
   def fetch_metadata
     result = OpenGraph.fetch(self.url)
     #todo provide meaningful errors (BAD LINK)
-    raise Errors::InvalidLinkError unless result
+    raise Errors::InvalidPostError unless result
     result
   end
 

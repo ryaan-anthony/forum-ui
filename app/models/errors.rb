@@ -1,5 +1,5 @@
 module Errors
 
-  class InvalidLinkError < StandardError; end
+  class InvalidPostError < StandardError; end
 
 end
