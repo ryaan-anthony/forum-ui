@@ -2,15 +2,18 @@ en:
   api:
     index:
       description: 'Search for posts'
+      detailed_description: 'Detailed description...'
     create:
       description: 'Create a new post'
+      detailed_description: 'Detailed description...'
     show:
       description: 'Find an existing post'
+      detailed_description: 'Detailed description...'
     destroy:
       description: 'Delete a post'
-    partial_update:
-      description: 'Partial or full update post'
+      detailed_description: 'Detailed description...'
     update:
       description: 'Update a post'
+      detailed_description: 'Detailed description...'
     params:
       authentication_token: "Use the development token (click here) to build your app. When you're ready to go live (click here)."
