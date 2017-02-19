@@ -12,4 +12,14 @@ class Application < Rails::Application
 
   Elasticsearch::Persistence.client = Elasticsearch::Client.new log: true
 
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :authentication => :plain,
+    :address => "smtp.mailgun.org",
+    :port => 587,
+    :domain => "#{ENV['MAILGUN_ID']}.mailgun.org",
+    :user_name => "postmaster@#{ENV['MAILGUN_ID']}.mailgun.org",
+    :password => ENV['MAILGUN_PASSWORD']
+  }
+
 end
